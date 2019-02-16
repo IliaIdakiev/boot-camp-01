@@ -10,14 +10,23 @@ export class TodoService {
 
   add(value: string) {
     if (value === '') { return; }
-    this.todos.push({
-      title: value,
-      completed: false
-    });
+    // var arr = [1,2,3]; var b = [...arr];
+    this.todos = [
+      ...this.todos,
+      {
+        title: value,
+        completed: false
+      }
+    ];
+
+    // this.todos.push({
+    //   title: value,
+    //   completed: false
+    // });
   }
 
   remove(index: number) {
-    this.todos.splice(index, 1);
-    // this.todos = [...this.todos.slice(0, index), ...this.todos.slice(index + 1)];
+    // this.todos.splice(index, 1);
+    this.todos = [...this.todos.slice(0, index), ...this.todos.slice(index + 1)];
   }
 }
