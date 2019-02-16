@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
+import { TodoService } from '../todo.service';
 
 
 @Component({
@@ -6,19 +7,32 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent {
-  @Input() todos;
-  @Output() remove = new EventEmitter();
-  @Output() toggle = new EventEmitter();
+export class TodoListComponent implements DoCheck {
+  todos: any[] = [];
+  filterValue = null;
 
-  constructor() { }
-
-  handleRemove(index: number) {
-    this.remove.emit(index);
+  constructor(public todoService: TodoService) {
+    this.todos = todoService.todos;
   }
 
-  handleToggle(index: number) {
-    this.toggle.emit(index);
+  ngDoCheck() {
+    this.todos = this.todoService.todos;
+  }
+
+  changeFilter(value) {
+    this.filterValue = value;
+  }
+
+  addHandler(value: string) {
+    this.todoService.add(value);
+  }
+
+  deleteTodo(index: number) {
+    this.todoService.remove(index);
+  }
+
+  toggleTodo(index: number) {
+    this.todoService.toggle(index);
   }
 
 }

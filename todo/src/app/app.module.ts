@@ -7,6 +7,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoEntityComponent } from './todo-entity/todo-entity.component';
 import { LineThroughDirective } from './line-through.directive';
 import { FilterPipe } from './filter.pipe';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { FilterPipe } from './filter.pipe';
     FilterPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
