@@ -8,6 +8,7 @@ import { TodoService } from './todo.service';
 })
 export class AppComponent implements DoCheck {
   todos: any[] = [];
+  filterValue = null;
 
   constructor(public todoService: TodoService) {
     this.todos = todoService.todos;
@@ -15,6 +16,10 @@ export class AppComponent implements DoCheck {
 
   ngDoCheck() {
     this.todos = this.todoService.todos;
+  }
+
+  changeFilter(value) {
+    this.filterValue = value;
   }
 
   addHandler(value: string) {

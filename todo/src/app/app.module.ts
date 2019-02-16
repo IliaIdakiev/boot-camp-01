@@ -6,6 +6,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoEntityComponent } from './todo-entity/todo-entity.component';
 import { LineThroughDirective } from './line-through.directive';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { LineThroughDirective } from './line-through.directive';
     TodoItemComponent,
     TodoListComponent,
     TodoEntityComponent,
-    LineThroughDirective
+    LineThroughDirective,
+    FilterPipe
   ],
   imports: [
     BrowserModule
