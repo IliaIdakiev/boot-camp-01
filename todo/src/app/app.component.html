@@ -1,3 +1,8 @@
-<h1>Title is: {{title}}</h1>
 <input #inputTitle type="text" />
-<button (click)="addHandler(inputTitle.value); inputTitle.value = ''">Add</button>
+<button (click)="addHandler(inputTitle.value); inputTitle.value = '';">Add</button>
+<div *ngIf="todos.length === 0">No todos</div>
+<ul>
+  <li *ngFor="let todo of todos">{{todo}}</li>
+</ul>
+
+<!-- REPO: https://github.com/IliaIdakiev/boot-camp-01 -->

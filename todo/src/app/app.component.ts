@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '';
+  todos = [];
   addHandler(value: string) {
-    this.title = value;
+    this.todos.push(value);
   }
 }
