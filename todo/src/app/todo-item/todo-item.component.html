@@ -1,5 +1,6 @@
 <li>
   <span [appLineThrough]="todo.completed">{{todo.title}}</span>
+  <a [routerLink]="['/edit', todo.id]">Edit</a>
   <input type="checkbox" [value]="todo.completed" (change)="handleToggle()">
   <button (click)="deleteHandler()">Delete</button>
 </li>

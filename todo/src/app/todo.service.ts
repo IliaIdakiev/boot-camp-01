@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TodoService {
+  counter = 1;
   todos = [];
 
   constructor() { }
@@ -15,7 +16,8 @@ export class TodoService {
       ...this.todos,
       {
         title: value,
-        completed: false
+        completed: false,
+        id: this.counter++
       }
     ];
 

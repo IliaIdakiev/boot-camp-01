@@ -7,6 +7,11 @@ completed
 <app-todo-list [todos]="todos | filter : filterValue" (remove)="deleteTodo($event)" (toggle)="toggleTodo($event)">
 </app-todo-list> -->
 
+<nav>
+  <a routerLink="list" routerLinkActive="active">List</a>
+  <a routerLink="add" routerLinkActive="active">Add todo</a>
+</nav>
+
 <router-outlet></router-outlet>
 
 

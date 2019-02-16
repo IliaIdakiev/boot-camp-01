@@ -23,10 +23,6 @@ export class TodoListComponent implements DoCheck {
     this.filterValue = value;
   }
 
-  addHandler(value: string) {
-    this.todoService.add(value);
-  }
-
   deleteTodo(index: number) {
     this.todoService.remove(index);
   }
