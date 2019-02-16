@@ -8,6 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   todos = [];
   addHandler(value: string) {
-    this.todos.push(value);
+    if (value === '') { return; }
+    this.todos.push({
+      title: value,
+      completed: false
+    });
+  }
+
+  deleteTodo(index: number) {
+    console.log('Delete todo', index);
   }
 }
