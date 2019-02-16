@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appLineThrough]'
+  selector: '[appLineThrough]',
+  exportAs: 'appLineThrough'
 })
 export class LineThroughDirective {
   @Input() set appLineThrough(value: boolean) {

@@ -15,4 +15,17 @@ completed
 <router-outlet></router-outlet>
 
 
+
+<form #registrationForm="ngForm">
+  <input #firstName="ngModel" name="firstName" ngModel required />
+  <div *ngIf="!firstName.valid && firstName.touched">Invalid fist name</div>
+  <button (click)="save(registrationForm)" [disabled]="registrationForm.invalid">Save</button>
+</form>
+
+<form [formGroup]="myForm">
+  <input formControlName="lastName" />
+  <div *ngIf="!myForm.controls['lastName'].valid && myForm.controls['lastName'].touched">Invalid last name</div>
+  <button (click)="save2()" [disabled]="myForm.invalid">Save</button>
+</form>
+
 <!-- REPO: https://github.com/IliaIdakiev/boot-camp-01 -->
