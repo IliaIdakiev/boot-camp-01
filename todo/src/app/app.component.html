@@ -1,5 +1,4 @@
-<input #inputTitle type="text" />
-<button (click)="addHandler(inputTitle.value); inputTitle.value = '';">Add</button>
+<app-todo-entity (add)="addHandler($event)"></app-todo-entity>
 <app-todo-list [todos]="todos" (remove)="deleteTodo($event)"></app-todo-list>
 
 
