@@ -1,8 +1,6 @@
 <input #inputTitle type="text" />
 <button (click)="addHandler(inputTitle.value); inputTitle.value = '';">Add</button>
-<div *ngIf="todos.length === 0">No todos</div>
-<ul>
-  <app-todo-item *ngFor="let todo of todos; let i = index;" [todo]="todo" (delete)="deleteTodo(i)"></app-todo-item>
-</ul>
+<app-todo-list [todos]="todos" (remove)="deleteTodo($event)"></app-todo-list>
+
 
 <!-- REPO: https://github.com/IliaIdakiev/boot-camp-01 -->

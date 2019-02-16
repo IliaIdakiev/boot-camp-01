@@ -1,0 +1,4 @@
+<div *ngIf="todos.length === 0">No todos</div>
+<ul>
+  <app-todo-item *ngFor="let todo of todos; let i = index;" [todo]="todo" (delete)="handleRemove(i)"></app-todo-item>
+</ul>
