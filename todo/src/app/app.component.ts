@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todos = [];
+  todos: any[] = [];
+  constructor(public todoService: TodoService) {
+    this.todos = todoService.todos;
+  }
+
   addHandler(value: string) {
-    if (value === '') { return; }
-    this.todos.push({
-      title: value,
-      completed: false
-    });
+    this.todoService.add(value);
   }
 
   deleteTodo(index: number) {
-    console.log('Delete todo', index);
+    this.todoService.remove(index);
   }
 }
