@@ -1,10 +1,16 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appLineThrough]'
 })
 export class LineThroughDirective {
-
-  constructor(public elementRef: ElementRef) { }
+  @Input() set appLineThrough(value: boolean) {
+    if (value) {
+      this.renderer.setStyle(this.elementRef.nativeElement, 'text-decoration', 'line-through');
+    } else {
+      this.renderer.setStyle(this.elementRef.nativeElement, 'text-decoration', '');
+    }
+  }
+  constructor(public elementRef: ElementRef, public renderer: Renderer2) { }
 
 }
