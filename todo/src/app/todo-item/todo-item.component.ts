@@ -9,11 +9,16 @@ export class TodoItemComponent {
 
   @Input() todo;
   @Output() delete = new EventEmitter();
+  @Output() toggle = new EventEmitter();
 
   constructor() { }
 
   deleteHandler() {
     this.delete.emit();
+  }
+
+  handleToggle() {
+    this.toggle.emit();
   }
 
 }

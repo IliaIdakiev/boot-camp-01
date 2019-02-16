@@ -1,4 +1,4 @@
-import { Component, OnChanges, DoCheck } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { TodoService } from './todo.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { TodoService } from './todo.service';
 })
 export class AppComponent implements DoCheck {
   todos: any[] = [];
+
   constructor(public todoService: TodoService) {
     this.todos = todoService.todos;
   }
@@ -22,5 +23,9 @@ export class AppComponent implements DoCheck {
 
   deleteTodo(index: number) {
     this.todoService.remove(index);
+  }
+
+  toggleTodo(index: number) {
+    this.todoService.toggle(index);
   }
 }

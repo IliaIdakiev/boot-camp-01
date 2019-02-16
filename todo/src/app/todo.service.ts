@@ -29,4 +29,8 @@ export class TodoService {
     // this.todos.splice(index, 1);
     this.todos = [...this.todos.slice(0, index), ...this.todos.slice(index + 1)];
   }
+
+  toggle(index: number) {
+    this.todos[index].completed = !this.todos[index].completed;
+  }
 }

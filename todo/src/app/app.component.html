@@ -1,5 +1,5 @@
 <app-todo-entity (add)="addHandler($event)"></app-todo-entity>
-<app-todo-list [todos]="todos" (remove)="deleteTodo($event)"></app-todo-list>
+<app-todo-list [todos]="todos" (remove)="deleteTodo($event)" (toggle)="toggleTodo($event)"></app-todo-list>
 
 
 <!-- REPO: https://github.com/IliaIdakiev/boot-camp-01 -->
