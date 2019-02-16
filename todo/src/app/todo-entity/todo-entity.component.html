@@ -1,2 +1,2 @@
-<input #inputTitle type="text" />
-<button (click)="addHandler(inputTitle.value); inputTitle.value = '';">Add</button>
+<input #inputTitle type="text" (keyup.enter)="addHandler(inputTitle.value);" />
+<button (click)="addHandler(inputTitle.value);">Add</button>
