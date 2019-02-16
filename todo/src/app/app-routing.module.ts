@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoEntityComponent } from './todo-entity/todo-entity.component';
+import { TodosResolver } from './todos.resolver';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'list',
-    component: TodoListComponent
+    component: TodoListComponent,
+    resolve: [TodosResolver]
   },
   {
     path: 'add',

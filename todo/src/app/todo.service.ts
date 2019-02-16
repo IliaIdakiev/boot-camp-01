@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,15 @@ export class TodoService {
   counter = 1;
   todos = [];
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
+
+  load() {
+    return this.http.get('todos', { withCredentials: true }).pipe(
+      tap((todos: any) => {
+        this.todos = todos;
+      })
+    );
+  }
 
   add(value: string) {
     if (value === '') { return; }

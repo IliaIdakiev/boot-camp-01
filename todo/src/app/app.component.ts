@@ -8,6 +8,8 @@ import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent {
   myForm: FormGroup;
+  show = false;
+
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
       lastName: fb.control('', [Validators.required], [])
